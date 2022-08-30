@@ -11,3 +11,5 @@ game_1.welcome()
 game_1.choose_players()
 if game_1.players == 1:
     game_1.one_player_game()
+elif game_1.players == 2:
+    game_1.two_player_game()

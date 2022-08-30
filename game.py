@@ -1,7 +1,7 @@
 from human import Human
 from ai import Ai
 from player import Player
-
+from human_2 import Human2
 class Game(Player):
     def __init__(self):
         super().__init__()
@@ -24,9 +24,9 @@ class Game(Player):
 
     def one_player_game(self):
         print(f"Human will be going first. Make your selection.")
-        human_choice = Human.choose_gesture(self)
-        ai_choice = Ai.random_choice(self)
         while self.round < 3:
+            human_choice = Human.choose_gesture(self)
+            ai_choice = Ai.random_choice(self)
             human_win = False
             ai_win = False
             if human_choice == ai_choice:
@@ -120,6 +120,108 @@ class Game(Player):
             print("Human wins!! Game over.")
         elif ai_win > human_win:
             print("Ai wins!! Game over.")
+
+    def two_player_game(self):
+        print("Human 1 will go first. Make your selection.")
+        while self.round < 3:
+            human_1_choice = Human.choose_gesture(self)
+            human_2_choice = Human2.choose_gesture(self)
+            human_win = False
+            ai_win = False
+            if human_1_choice == human_2_choice:
+                print("It was a tie.")
+            elif human_1_choice == "Rock":
+                if human_2_choice == "Paper":
+                    print("Human 2 wins, round is over!")
+                    self.round += 1
+                    ai_win += 1
+                elif human_2_choice == "Scissor":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Lizard":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Spock":
+                    print("Human 2 wins, round over")
+                    self.round += 1
+                    ai_win += 1
+            elif human_1_choice == "Paper":
+                if human_2_choice == "Scissor":
+                    print("Human 2 wins, round is over!")
+                    self.round += 1
+                    ai_win += 1
+                elif human_2_choice == "Rock":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Spock":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Lizard":
+                    print("Human 2 wins, round over")
+                    self.round += 1
+                    ai_win += 1
+            elif human_1_choice == "Scissor":
+                if human_2_choice == "Rock":
+                    print("Human 2 wins, round is over!")
+                    self.round += 1
+                    ai_win += 1
+                elif human_2_choice == "Paper":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Lizard":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Spock":
+                    print("Human 2 wins, round over")
+                    self.round += 1
+                    ai_win += 1
+            elif human_1_choice == "Lizard":
+                if human_2_choice == "Rock":
+                    print("Human 2 wins, round is over!")
+                    self.round += 1
+                    ai_win += 1
+                elif human_2_choice == "Spock":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Paper":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Scissor":
+                    print("Human 2 wins, round over")
+                    self.round += 1
+                    ai_win += 1
+            elif human_1_choice == "Spock":
+                if human_2_choice == "Lizard":
+                    print("Human 2 wins, round is over!")
+                    self.round += 1
+                    ai_win += 1
+                elif human_2_choice == "Scissor":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Rock":
+                    print("Human 1 wins, round over")
+                    self.round += 1
+                    human_win += 1
+                elif human_2_choice == "Paper":
+                    print("Human 2 wins, round over")
+                    self.round += 1
+                    ai_win += 1
+        if human_win > ai_win:
+            print("Human 1 wins!! Game over.")
+        elif ai_win > human_win:
+            print("Human 2 wins!! Game over.")
+
+
+
                 
             
 
