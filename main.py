@@ -10,4 +10,4 @@ game_1 = Game()
 game_1.welcome()
 game_1.choose_players()
 if game_1.players == 1:
-    game_1.one_player_game
+    game_1.one_player_game()

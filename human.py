@@ -21,7 +21,7 @@ class Human(Player):
             print("Please enter the numbers 1,2,3, or 4.")
             Human.choose_gesture(self)
         print(f"You chose {self.chosen_gesture}.")
-        return human_choice
+        return self.chosen_gesture
 
 
 
